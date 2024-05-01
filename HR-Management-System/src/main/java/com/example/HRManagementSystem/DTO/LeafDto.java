@@ -1,0 +1,22 @@
+package com.example.HRManagementSystem.DTO;
+
+import com.example.HRManagementSystem.Entities.Employee;
+import com.example.HRManagementSystem.Entities.Leaf;
+import lombok.Value;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+
+/**
+ * DTO for {@link Leaf}
+ */
+@Value
+public class LeafDto implements Serializable {
+    Integer id;
+    LeavetypeDto leaveType;
+    LocalDate fromDate;
+    LocalDate toDate;
+    Integer numberOfDays;
+    String note;
+    Employee employee;
+}
