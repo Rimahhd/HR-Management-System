@@ -14,5 +14,7 @@ Reporting: Generate reports on various HR metrics such as employee turnover, att
 Technologies Used:
 
 Spring Boot: Utilized for rapid application development, dependency management, and simplified configuration.
+
 MySQL: Used as the database management system for storing and retrieving HR-related data.
+
 REST API: Architecture for designing networked applications, enabling communication between different software systems using standard HTTP methods.
