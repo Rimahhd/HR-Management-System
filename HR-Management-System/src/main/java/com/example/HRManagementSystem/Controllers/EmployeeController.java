@@ -1,65 +1,82 @@
 package com.example.HRManagementSystem.Controllers;
 
 import com.example.HRManagementSystem.ApiResponse;
-import com.example.HRManagementSystem.DTO.DepartmentDto;
-import com.example.HRManagementSystem.DTO.EmployeeDto;
-import com.example.HRManagementSystem.Services.EmployeeService;
+import com.example.HRManagementSystem.DTO.EmployeeDTO.EmployeeDTO;
+import com.example.HRManagementSystem.Entities.EmployeeEntity.EmployeeEntity;
+import com.example.HRManagementSystem.Repositories.DepartmentRepository;
+import com.example.HRManagementSystem.Repositories.EmployeeRepository;
+import com.example.HRManagementSystem.Services.EmployeeServices.EmployeeService;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
+@CrossOrigin("*")
+@Data
 @RestController
-@RequestMapping("/api/employees")
+@RequestMapping("/HRManagementSystem/api/v1/employees")
+
 public class EmployeeController {
 
-    private final EmployeeService employeeService;
-
     @Autowired
+    private EmployeeRepository employeeRepository;
+
+    private final EmployeeService employeeService;
+    private DepartmentRepository departmentRepository;
+    private ApiResponse response;
+
     public EmployeeController(EmployeeService employeeService) {
+
         this.employeeService = employeeService;
+        this.departmentRepository = departmentRepository;
     }
 
-    @PostMapping("/departments")
-    public ResponseEntity<ApiResponse<DepartmentDto>> createDepartment(@RequestBody DepartmentDto departmentDto) {
-        DepartmentDto createdDepartment = employeeService.createDepartment(departmentDto);
-        ApiResponse<DepartmentDto> response = new ApiResponse<>();
-        response.setSuccess(true);
-        response.setMessage("Department created successfully");
-        response.setReturnField(createdDepartment);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    @GetMapping("/all")
+    public List<EmployeeEntity> getEmployees() {
+        return employeeRepository.findAll();
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<ApiResponse<EmployeeDto>> createEmployee(@RequestBody EmployeeDto employeeDto) {
-        EmployeeDto createdEmployee = employeeService.createEmployee(employeeDto);
-        ApiResponse<EmployeeDto> response = new ApiResponse<>();
-        response.setSuccess(true);
-        response.setMessage("Employee created successfully");
-        response.setReturnField(createdEmployee);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    @GetMapping("/{id}")
+    public EmployeeDTO getEmployee(@PathVariable int id) {
+
+        return employeeService.findEmployeeById(id);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<ApiResponse<EmployeeDto>> updateEmployee(@PathVariable("id") Long id, @RequestBody EmployeeDto employeeDto) {
-        EmployeeDto updatedEmployee = employeeService.updateEmployee(id, employeeDto);
-        ApiResponse<EmployeeDto> response = new ApiResponse<>();
-        response.setSuccess(true);
-        response.setMessage("Employee updated successfully");
-        response.setReturnField(updatedEmployee);
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+    @PostMapping
+    public ApiResponse createEmployee(@RequestBody EmployeeDTO employeeDTO) {
+        EmployeeEntity employee = new EmployeeEntity();
+        employee.setName(employeeDTO.getName());
+        response.setMessage("Employee information CREATED successfully");
+        return (response);
     }
 
-    @GetMapping("/departments/{departmentId}")
-    public ResponseEntity<ApiResponse<List<EmployeeDto>>> getEmployeesByDepartment(@PathVariable("departmentId") Long departmentId) {
-        List<EmployeeDto> employees = employeeService.getEmployeesByDepartment(departmentId);
-        ApiResponse<List<EmployeeDto>> response = new ApiResponse<>();
-        response.setSuccess(true);
-        response.setMessage("Employees retrieved successfully");
-        response.setReturnField(employees);
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+
+    @PatchMapping("/{id}")
+    public ApiResponse updateEmployee(@PathVariable int id, @RequestBody Map<String, Object> employeeDetails) {
+        employeeService.updateEntity(id, employeeDetails);
+        ApiResponse response = new ApiResponse();
+        response.setMessage("Employee information UPDATED successfully");
+        return (response);
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteEmployee(@PathVariable int id) throws IllegalAccessException {
+        employeeService.deleteEntity(id);
+        ApiResponse response = new ApiResponse();
+        response.setMessage("Employee information DELETED successfully");
+        return ResponseEntity.status(HttpStatus.CREATED).body(response.toString());
+    }
+
+
+    //List Employees by Department
+    @GetMapping("/departments/{departmentId}/employees")
+    public List<EmployeeEntity> getEmployeesByDepartment(@PathVariable Integer departmentId) {
+        return employeeService.getEmployeesByDepartment(departmentId);
     }
 }
 
