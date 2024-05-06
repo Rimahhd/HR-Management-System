@@ -1,13 +1,17 @@
 package com.example.HRManagementSystem.Mappers;
 
-import com.example.HRManagementSystem.DTO.LeaveDTO;
-import com.example.HRManagementSystem.Entities.LeaveEntity;
 import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
+import com.example.HRManagementSystem.DTO.LeavesDTO.LeaveDTO;
+import com.example.HRManagementSystem.Entities.LeavesEnties.LeaveEntity;
 
 @Mapper(componentModel = "spring")
 public interface LeaveMapper {
-    LeaveDTO leaveTypeToDto(LeaveEntity leaveType);
-    LeaveEntity dtoToLeaveType(LeaveDTO dto);
+    LeaveMapper INSTANCE = Mappers.getMapper(LeaveMapper.class);
+
+    LeaveDTO LeaveEntityToLeaveDTO(LeaveEntity cmUserEntity);
+
+    LeaveEntity userDTOToCmUserEntity(LeaveDTO userDTO);
 }
 
 

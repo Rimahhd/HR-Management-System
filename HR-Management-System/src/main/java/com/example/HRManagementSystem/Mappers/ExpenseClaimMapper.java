@@ -1,11 +1,15 @@
 package com.example.HRManagementSystem.Mappers;
 
-import com.example.HRManagementSystem.DTO.ExpenseClaimDTO;
-import com.example.HRManagementSystem.Entities.ExpenseClaimEntity;
+import com.example.HRManagementSystem.DTO.ExpenseDTO.ExpenseClaimDTO;
+import com.example.HRManagementSystem.Entities.ExpenseEntity.ExpenseClaimEntity;
 import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring")
+@Mapper
 public interface ExpenseClaimMapper {
-    ExpenseClaimDTO expenseClaimToDto(ExpenseClaimEntity expenseClaim);
-    ExpenseClaimEntity dtoToExpenseClaim(ExpenseClaimDTO dto);
+    ExpenseClaimMapper INSTANCE = Mappers.getMapper(ExpenseClaimMapper.class);
+
+    ExpenseClaimDTO ExpenseClaimEntityToExpenseClaimDTO(ExpenseClaimEntity expenseClaimEntity);
+
+    ExpenseClaimEntity ExpenseClaimDTOToExpenseClaimEntity(ExpenseClaimDTO expenseClaimDTO);
 }

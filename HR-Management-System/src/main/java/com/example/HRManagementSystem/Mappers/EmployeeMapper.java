@@ -1,23 +1,20 @@
 package com.example.HRManagementSystem.Mappers;
 
-import com.example.HRManagementSystem.DTO.DepartmentDto;
-import com.example.HRManagementSystem.DTO.EmployeeDto;
-import com.example.HRManagementSystem.Entities.DepartmentEntity;
-import com.example.HRManagementSystem.Entities.EmployeeEntity;
+import com.example.HRManagementSystem.DTO.EmployeeDTO.EmployeeDTO;
+import com.example.HRManagementSystem.Entities.EmployeeEntity.EmployeeEntity;
 import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
 
-import java.util.List;
 
 @Mapper(componentModel = "spring")
+
 public interface EmployeeMapper {
 
-    EmployeeDto employeeToDto(EmployeeEntity employee);
+    EmployeeMapper INSTANCE = Mappers.getMapper(EmployeeMapper.class);
 
-    EmployeeEntity dtoToEmployee(EmployeeDto dto);
+    EmployeeDTO EmployeeEntityToEmployeeDTO(EmployeeEntity cmUserEntity);
 
-    DepartmentDto departmentToDto(DepartmentEntity department);
-
-    DepartmentEntity dtoToDepartment(DepartmentDto dto);
-
-    List<EmployeeDto> employeeListToDtoList(List<EmployeeEntity> employees);
+    EmployeeEntity userDTOToCmUserEntity(EmployeeDTO userDTO);
 }
+
+
