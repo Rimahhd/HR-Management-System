@@ -1,7 +1,7 @@
 package com.example.HRManagementSystem.Mappers;
 
 import com.example.HRManagementSystem.DTO.LeavesDTO.LeaveTypeDTO;
-import com.example.HRManagementSystem.Entities.LeavesEnties.LeaveTypeEntity;
+import com.example.HRManagementSystem.Entities.LeavesEntities.LeaveTypeEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

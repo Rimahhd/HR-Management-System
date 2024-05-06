@@ -1,4 +1,4 @@
-package com.example.HRManagementSystem.Entities.LeavesEnties;
+package com.example.HRManagementSystem.Entities.LeavesEntities;
 
 import jakarta.persistence.*;
 

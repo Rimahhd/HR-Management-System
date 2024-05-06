@@ -1,7 +1,7 @@
 package com.example.HRManagementSystem.Repositories.LeavesRepositories;
 
-import com.example.HRManagementSystem.Entities.LeavesEnties.LeaveEntity;
-import com.example.HRManagementSystem.Entities.LeavesEnties.LeaveTypeEntity;
+import com.example.HRManagementSystem.Entities.LeavesEntities.LeaveEntity;
+import com.example.HRManagementSystem.Entities.LeavesEntities.LeaveTypeEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
