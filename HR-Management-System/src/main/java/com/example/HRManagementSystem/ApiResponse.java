@@ -3,8 +3,10 @@ package com.example.HRManagementSystem;
 import lombok.Data;
 
 @Data
-public class ApiResponse<T> {
-    private boolean success;
+public class ApiResponse {
     private String message;
-    private T returnField;
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }
