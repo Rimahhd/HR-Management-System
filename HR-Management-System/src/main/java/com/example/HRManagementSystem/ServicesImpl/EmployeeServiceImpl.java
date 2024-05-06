@@ -2,8 +2,8 @@ package com.example.HRManagementSystem.ServicesImpl;
 
 import com.example.HRManagementSystem.DTO.DepartmentDto;
 import com.example.HRManagementSystem.DTO.EmployeeDto;
-import com.example.HRManagementSystem.Entities.Department;
-import com.example.HRManagementSystem.Entities.Employee;
+import com.example.HRManagementSystem.Entities.DepartmentEntity;
+import com.example.HRManagementSystem.Entities.EmployeeEntity;
 import com.example.HRManagementSystem.Mappers.EmployeeMapper;
 import com.example.HRManagementSystem.Repositories.DepartmentRepository;
 import com.example.HRManagementSystem.Repositories.EmployeeRepository;
@@ -30,19 +30,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public DepartmentDto createDepartment(DepartmentDto departmentDto) {
-        Department department = departmentRepository.save(employeeMapper.dtoToDepartment(departmentDto));
+        DepartmentEntity department = departmentRepository.save(employeeMapper.dtoToDepartment(departmentDto));
         return employeeMapper.departmentToDto(department);
     }
 
     @Override
     public EmployeeDto createEmployee(EmployeeDto employeeDto) {
-        Employee employee = employeeRepository.save(employeeMapper.dtoToEmployee(employeeDto));
+        EmployeeEntity employee = employeeRepository.save(employeeMapper.dtoToEmployee(employeeDto));
         return employeeMapper.employeeToDto(employee);
     }
 
     @Override
     public EmployeeDto updateEmployee(Integer id, EmployeeDto employeeDto) {
-        Employee existingEmployee = employeeRepository.findById(id)
+        EmployeeEntity existingEmployee = employeeRepository.findById(id)
                 .orElseThrow(() -> new ConfigDataResourceNotFoundException("Employee not found with id " + id));
 
         // Update existingEmployee fields with employeeDto data
@@ -51,16 +51,16 @@ public class EmployeeServiceImpl implements EmployeeService {
         existingEmployee.setAddress(employeeDto.getAddress());
         // Update other fields as required
 
-        Employee updatedEmployee = employeeRepository.save(existingEmployee);
+        EmployeeEntity updatedEmployee = employeeRepository.save(existingEmployee);
         return employeeMapper.employeeToDto(updatedEmployee);
     }
 
 
     @Override
     public List<EmployeeDto> getEmployeesByDepartment(Long departmentId) {
-        Department department = departmentRepository.findById(departmentId)
+        DepartmentEntity department = departmentRepository.findById(departmentId)
                 .orElseThrow(() -> new ResourceNotFoundException("Department not found with id " + departmentId));
-        List<Employee> employees = employeeRepository.findByDepartment(department);
+        List<EmployeeEntity> employees = employeeRepository.findByDepartment(department);
         return employeeMapper.employeeListToDtoList(employees);
     }
 }

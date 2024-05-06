@@ -1,4 +1,4 @@
-package com.example.HRManagementSystem.DTO;
+package com.example.HRManagementSystem.DTO.DepartmentDTO;
 
 import lombok.Data;
 

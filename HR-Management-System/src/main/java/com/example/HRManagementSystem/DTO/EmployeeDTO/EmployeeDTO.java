@@ -1,5 +1,6 @@
-package com.example.HRManagementSystem.DTO;
+package com.example.HRManagementSystem.DTO.EmployeeDTO;
 
+import com.example.HRManagementSystem.DTO.DepartmentDTO.DepartmentDTO;
 import lombok.Data;
 import java.util.List;
 

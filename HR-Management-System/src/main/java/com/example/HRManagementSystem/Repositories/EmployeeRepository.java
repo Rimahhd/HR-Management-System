@@ -1,11 +1,11 @@
 package com.example.HRManagementSystem.Repositories;
 
-import com.example.HRManagementSystem.Entities.Department;
-import com.example.HRManagementSystem.Entities.Employee;
+import com.example.HRManagementSystem.Entities.DepartmentEntity;
+import com.example.HRManagementSystem.Entities.EmployeeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
-    List<Employee> findByDepartment(Department department);
+public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Integer> {
+    List<EmployeeEntity> findByDepartment(DepartmentEntity department);
 }
