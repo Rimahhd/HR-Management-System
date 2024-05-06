@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2024 at 09:58 AM
+-- Generation Time: May 06, 2024 at 07:28 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -28,18 +28,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `department` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
+                              `department_id` int(11) NOT NULL,
+                              `department_name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `department`
 --
 
-INSERT INTO `department` (`id`, `name`) VALUES
-(1, 'Human Resources'),
-(2, 'Finance'),
-(3, 'IT');
+INSERT INTO `department` (`department_id`, `department_name`) VALUES
+                                                                  (1, 'Engineering'),
+                                                                  (2, 'Human Resources'),
+                                                                  (3, 'Finance');
 
 -- --------------------------------------------------------
 
@@ -48,114 +48,117 @@ INSERT INTO `department` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `employee` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `department_id` int(11) DEFAULT NULL
+                            `id` int(11) NOT NULL,
+                            `email` varchar(255) DEFAULT NULL,
+                            `address` varchar(255) DEFAULT NULL,
+                            `name` varchar(255) DEFAULT NULL,
+                            `department_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`id`, `name`, `email`, `address`, `department_id`) VALUES
-(1, 'John Doe', 'john.doe@example.com', '123 Main St', 1),
-(2, 'Jane Smith', 'jane.smith@example.com', '456 Oak St', 1),
-(3, 'Mike Johnson', 'mike.johnson@example.com', '789 Elm St', 2),
-(4, 'Emily Brown', 'emily.brown@example.com', '101 Pine St', 3);
+INSERT INTO `employee` (`id`, `email`, `address`, `name`, `department_id`) VALUES
+                                                                               (1, 'john@example.com', '123 Main St, Anytown', 'John Doe', 1),
+                                                                               (2, 'jane@example.com', '456 Elm St, Othertown', 'Jane Smith', 1),
+                                                                               (3, 'mark@example.com', '789 Oak St, Anycity', 'Mark Johnson', 1),
+                                                                               (4, 'sarah@example.com', '101 Pine St, Somewhere', 'Sarah Brown', 2),
+                                                                               (5, 'mike@example.com', '202 Maple St, Anyville', 'Mike Wilson', 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `expenseclaim`
+-- Table structure for table `expense_claim_entity`
 --
 
-CREATE TABLE `expenseclaim` (
-  `id` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `description` text DEFAULT NULL,
-  `total` decimal(10,2) NOT NULL,
-  `status` varchar(50) DEFAULT NULL,
-  `employee_id` int(11) DEFAULT NULL
+CREATE TABLE `expense_claim_entity` (
+                                        `expense_claim_id` int(11) NOT NULL,
+                                        `expense_claim_total` int(11) DEFAULT NULL,
+                                        `description` varchar(255) DEFAULT NULL,
+                                        `employee_id` int(11) DEFAULT NULL,
+                                        `expense_claim_date` date DEFAULT NULL,
+                                        `expense_claim_status` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `expenseclaim`
+-- Dumping data for table `expense_claim_entity`
 --
 
-INSERT INTO `expenseclaim` (`id`, `date`, `description`, `total`, `status`, `employee_id`) VALUES
-(1, '2024-04-01', 'Travel expenses for conference', 500.00, 'Submitted', 1),
-(2, '2024-04-02', 'Office supplies for department', 200.00, 'Approved', 3);
+INSERT INTO `expense_claim_entity` (`expense_claim_id`, `expense_claim_total`, `description`, `employee_id`, `expense_claim_date`, `expense_claim_status`) VALUES
+                                                                                                                                                               (1, 500, 'Software Licenses', 1, '2024-04-15', 'Pending'),
+                                                                                                                                                               (2, 300, 'Team Lunch', 2, '2024-04-20', 'Approved'),
+                                                                                                                                                               (3, 800, 'Conference Travel', 3, '2024-05-01', 'Pending'),
+                                                                                                                                                               (4, 200, 'Office Supplies', 4, '2024-05-05', 'Approved');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `expenseclaimentry`
+-- Table structure for table `expense_claim_entry`
 --
 
-CREATE TABLE `expenseclaimentry` (
-  `id` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `expense_type_id` int(11) DEFAULT NULL,
-  `expense_claim_id` int(11) DEFAULT NULL,
-  `description` text DEFAULT NULL,
-  `total` decimal(10,2) NOT NULL
+CREATE TABLE `expense_claim_entry` (
+                                       `entryId` int(11) NOT NULL,
+                                       `total` double DEFAULT NULL,
+                                       `entryDate` date DEFAULT NULL,
+                                       `entryDescription` varchar(255) DEFAULT NULL,
+                                       `expense_type_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `expenseclaimentry`
+-- Dumping data for table `expense_claim_entry`
 --
 
-INSERT INTO `expenseclaimentry` (`id`, `date`, `expense_type_id`, `expense_claim_id`, `description`, `total`) VALUES
-(1, '2024-04-01', 1, 1, 'Flight ticket', 300.00),
-(2, '2024-04-01', 2, 1, 'Hotel accommodation', 200.00),
-(3, '2024-04-02', 2, 2, 'Printer ink cartridges', 100.00),
-(4, '2024-04-02', 3, 2, 'Team lunch', 100.00);
+INSERT INTO `expense_claim_entry` (`entryId`, `total`, `entryDate`, `entryDescription`, `expense_type_id`) VALUES
+                                                                                                               (1, 200, '2024-04-15', 'Microsoft Office License', 1),
+                                                                                                               (2, 300, '2024-04-20', 'Team lunch with clients', 2),
+                                                                                                               (3, 500, '2024-05-01', 'Flight to Tech Conference', 3),
+                                                                                                               (4, 200, '2024-05-05', 'Printer ink cartridges', 4);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `expensetype`
+-- Table structure for table `expense_type_entity`
 --
 
-CREATE TABLE `expensetype` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
+CREATE TABLE `expense_type_entity` (
+                                       `expense_type_id` int(11) NOT NULL,
+                                       `expense_type_name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `expensetype`
+-- Dumping data for table `expense_type_entity`
 --
 
-INSERT INTO `expensetype` (`id`, `name`) VALUES
-(1, 'Travel'),
-(2, 'Office Supplies'),
-(3, 'Entertainment');
+INSERT INTO `expense_type_entity` (`expense_type_id`, `expense_type_name`) VALUES
+                                                                               (1, 'Software Licenses'),
+                                                                               (2, 'Team Lunch'),
+                                                                               (3, 'Travel'),
+                                                                               (4, 'Office Supplies');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `leaves`
+-- Table structure for table `leaves_entity`
 --
 
-CREATE TABLE `leaves` (
-  `id` int(11) NOT NULL,
-  `leave_type_id` int(11) DEFAULT NULL,
-  `from_date` date NOT NULL,
-  `to_date` date NOT NULL,
-  `number_of_days` int(11) NOT NULL,
-  `note` text DEFAULT NULL,
-  `employee_id` int(11) DEFAULT NULL
+CREATE TABLE `leaves_entity` (
+                                 `id` int(11) NOT NULL,
+                                 `employee_id` int(11) DEFAULT NULL,
+                                 `to_Date` date DEFAULT NULL,
+                                 `leave_type` varchar(255) DEFAULT NULL,
+                                 `from_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `leaves`
+-- Dumping data for table `leaves_entity`
 --
 
-INSERT INTO `leaves` (`id`, `leave_type_id`, `from_date`, `to_date`, `number_of_days`, `note`, `employee_id`) VALUES
-(1, 1, '2024-05-01', '2024-05-03', 3, 'Vacation trip', 2),
-(2, 2, '2024-04-10', '2024-04-11', 2, 'Sick with flu', 3);
+INSERT INTO `leaves_entity` (`id`, `employee_id`, `to_Date`, `leave_type`, `from_date`) VALUES
+                                                                                            (1, 1, '2024-06-01', 'Vacation', '2024-05-28'),
+                                                                                            (2, 2, '2024-05-10', 'Sick Leave', '2024-05-08'),
+                                                                                            (3, 3, '2024-06-15', 'Maternity Leave', '2024-04-15'),
+                                                                                            (4, 4, '2024-05-25', 'Personal Leave', '2024-05-22');
 
 -- --------------------------------------------------------
 
@@ -164,18 +167,19 @@ INSERT INTO `leaves` (`id`, `leave_type_id`, `from_date`, `to_date`, `number_of_
 --
 
 CREATE TABLE `leavetype` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
+                             `id` int(11) NOT NULL,
+                             `leave_type` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `leavetype`
 --
 
-INSERT INTO `leavetype` (`id`, `name`) VALUES
-(1, 'Vacation'),
-(2, 'Sick Leave'),
-(3, 'Maternity Leave');
+INSERT INTO `leavetype` (`id`, `leave_type`) VALUES
+                                                 (1, 'Vacation'),
+                                                 (2, 'Sick Leave'),
+                                                 (3, 'Maternity Leave'),
+                                                 (4, 'Personal Leave');
 
 --
 -- Indexes for dumped tables
@@ -185,49 +189,45 @@ INSERT INTO `leavetype` (`id`, `name`) VALUES
 -- Indexes for table `department`
 --
 ALTER TABLE `department`
-  ADD PRIMARY KEY (`id`);
+    ADD PRIMARY KEY (`department_id`);
 
 --
 -- Indexes for table `employee`
 --
 ALTER TABLE `employee`
-  ADD PRIMARY KEY (`id`),
+    ADD PRIMARY KEY (`id`),
   ADD KEY `department_id` (`department_id`);
 
 --
--- Indexes for table `expenseclaim`
+-- Indexes for table `expense_claim_entity`
 --
-ALTER TABLE `expenseclaim`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `employee_id` (`employee_id`);
+ALTER TABLE `expense_claim_entity`
+    ADD PRIMARY KEY (`expense_claim_id`);
 
 --
--- Indexes for table `expenseclaimentry`
+-- Indexes for table `expense_claim_entry`
 --
-ALTER TABLE `expenseclaimentry`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `expense_type_id` (`expense_type_id`),
-  ADD KEY `expense_claim_id` (`expense_claim_id`);
+ALTER TABLE `expense_claim_entry`
+    ADD PRIMARY KEY (`entryId`);
 
 --
--- Indexes for table `expensetype`
+-- Indexes for table `expense_type_entity`
 --
-ALTER TABLE `expensetype`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `expense_type_entity`
+    ADD PRIMARY KEY (`expense_type_id`);
 
 --
--- Indexes for table `leaves`
+-- Indexes for table `leaves_entity`
 --
-ALTER TABLE `leaves`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `leave_type_id` (`leave_type_id`),
+ALTER TABLE `leaves_entity`
+    ADD PRIMARY KEY (`id`),
   ADD KEY `employee_id` (`employee_id`);
 
 --
 -- Indexes for table `leavetype`
 --
 ALTER TABLE `leavetype`
-  ADD PRIMARY KEY (`id`);
+    ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -237,43 +237,31 @@ ALTER TABLE `leavetype`
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+    MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `expenseclaim`
+-- AUTO_INCREMENT for table `expense_claim_entry`
 --
-ALTER TABLE `expenseclaim`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `expense_claim_entry`
+    MODIFY `entryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `expenseclaimentry`
+-- AUTO_INCREMENT for table `expense_type_entity`
 --
-ALTER TABLE `expenseclaimentry`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `expense_type_entity`
+    MODIFY `expense_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `expensetype`
+-- AUTO_INCREMENT for table `leaves_entity`
 --
-ALTER TABLE `expensetype`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `leaves`
---
-ALTER TABLE `leaves`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `leavetype`
---
-ALTER TABLE `leavetype`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `leaves_entity`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -283,27 +271,13 @@ ALTER TABLE `leavetype`
 -- Constraints for table `employee`
 --
 ALTER TABLE `employee`
-  ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`);
+    ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`department_id`);
 
 --
--- Constraints for table `expenseclaim`
+-- Constraints for table `leaves_entity`
 --
-ALTER TABLE `expenseclaim`
-  ADD CONSTRAINT `expenseclaim_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`);
-
---
--- Constraints for table `expenseclaimentry`
---
-ALTER TABLE `expenseclaimentry`
-  ADD CONSTRAINT `expenseclaimentry_ibfk_1` FOREIGN KEY (`expense_type_id`) REFERENCES `expensetype` (`id`),
-  ADD CONSTRAINT `expenseclaimentry_ibfk_2` FOREIGN KEY (`expense_claim_id`) REFERENCES `expenseclaim` (`id`);
-
---
--- Constraints for table `leaves`
---
-ALTER TABLE `leaves`
-  ADD CONSTRAINT `leaves_ibfk_1` FOREIGN KEY (`leave_type_id`) REFERENCES `leavetype` (`id`),
-  ADD CONSTRAINT `leaves_ibfk_2` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`);
+ALTER TABLE `leaves_entity`
+    ADD CONSTRAINT `leaves_entity_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
