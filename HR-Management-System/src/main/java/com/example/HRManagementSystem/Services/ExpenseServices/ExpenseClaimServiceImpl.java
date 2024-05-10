@@ -14,7 +14,7 @@ public class ExpenseClaimServiceImpl implements ExpenseClaimService {
 
     private final ExpenseClaimRepository expenseClaimRepository;
 
-    @Autowired
+
     public ExpenseClaimServiceImpl(ExpenseClaimRepository expenseClaimRepository) {
         this.expenseClaimRepository = expenseClaimRepository;
     }

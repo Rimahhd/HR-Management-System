@@ -1,6 +1,7 @@
 package com.example.HRManagementSystem;
 
 import com.example.HRManagementSystem.Repositories.EmployeeRepository;
+import lombok.Getter;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
+@Getter
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = {"com.example.HRManagementSystem.Repositories"})
 @EntityScan(basePackages = {"com.example.HRManagementSystem.Entities"})
@@ -29,11 +31,7 @@ public class HrManagementSystemApplication implements CommandLineRunner {
 
 	}
 
-	public EmployeeRepository getEmployeeRepository() {
-		return employeeRepository;
-	}
-
-	public void setEmployeeRepository(EmployeeRepository employeeRepository) {
+    public void setEmployeeRepository(EmployeeRepository employeeRepository) {
 		this.employeeRepository = employeeRepository;
 	}
 }
