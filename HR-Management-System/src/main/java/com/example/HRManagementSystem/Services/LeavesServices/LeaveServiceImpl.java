@@ -18,7 +18,8 @@ import java.util.List;
 public class LeaveServiceImpl implements LeaveService {
     private final LeaveRepository leaveRepository;
     private final LeaveTypeRepository leaveTypeRepository;
-    
+
+
 
     public LeaveServiceImpl(LeaveRepository leaveRepository, LeaveTypeRepository leaveTypeRepository) {
         this.leaveRepository = leaveRepository;

@@ -29,6 +29,6 @@ public class EmployeeEntity {
     private String name;
 
     @Column(name = "department_id")
-    private Long departmentId;
+    private Integer departmentId;
 
 }

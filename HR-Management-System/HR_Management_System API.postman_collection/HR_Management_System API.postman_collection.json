@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "01aa3cc2-d0d8-4ec2-9f24-8378a6a478e3",
+		"_postman_id": "7041547c-d1a8-4a2d-bde9-e86e0aa6f9eb",
 		"name": "HR_Management_System API",
 		"description": "HR_Management_System API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -23,13 +23,11 @@
 										"header": [
 											{
 												"key": "Content-Type",
-												"value": "application/json",
-												"uuid": "b0d8e4de-a737-4af9-b783-21a48179bc3e"
+												"value": "application/json"
 											},
 											{
 												"key": "Accept",
-												"value": "*/*",
-												"uuid": "abbc269c-82db-4fce-8a2b-07ccef423699"
+												"value": "*/*"
 											}
 										],
 										"body": {
@@ -57,8 +55,7 @@
 												{
 													"key": "id",
 													"value": "<integer>",
-													"description": "(Required) ",
-													"uuid": "387afc98-2b90-459a-ad5d-3c162109741a"
+													"description": "(Required) "
 												}
 											]
 										}
@@ -125,8 +122,7 @@
 										"header": [
 											{
 												"key": "Accept",
-												"value": "*/*",
-												"uuid": "e40eec24-f009-4d5b-aa7a-f6e942cbbb36"
+												"value": "*/*"
 											}
 										],
 										"url": {
@@ -145,8 +141,7 @@
 												{
 													"key": "id",
 													"value": "<integer>",
-													"description": "(Required) ",
-													"uuid": "9f2023b0-466c-4b01-8616-0adf2be1ee74"
+													"description": "(Required) "
 												}
 											]
 										}
@@ -204,8 +199,7 @@
 										"header": [
 											{
 												"key": "Accept",
-												"value": "*/*",
-												"uuid": "e07114f3-6af4-4164-916e-0f687ec5b4ac"
+												"value": "*/*"
 											}
 										],
 										"url": {
@@ -224,8 +218,7 @@
 												{
 													"key": "id",
 													"value": "<integer>",
-													"description": "(Required) ",
-													"uuid": "a29c5802-8d31-4bad-aad3-f3943d7cc618"
+													"description": "(Required) "
 												}
 											]
 										}
@@ -285,13 +278,11 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/json",
-										"uuid": "0fe9ffa6-bd80-4505-b121-e52815dd5fe0"
+										"value": "application/json"
 									},
 									{
 										"key": "Accept",
-										"value": "*/*",
-										"uuid": "84c69754-5d8d-4c5e-9c94-2add5a261ff1"
+										"value": "*/*"
 									}
 								],
 								"body": {
@@ -370,8 +361,7 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "*/*",
-										"uuid": "c2e6d1a8-94f2-4dd5-a2aa-4c9bfd3d73c1"
+										"value": "*/*"
 									}
 								],
 								"url": {
@@ -434,8 +424,7 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "*/*",
-										"uuid": "cbffffed-9d5b-480e-b731-2dd0db26326e"
+										"value": "*/*"
 									}
 								],
 								"url": {
@@ -456,8 +445,7 @@
 										{
 											"key": "departmentId",
 											"value": "<integer>",
-											"description": "(Required) ",
-											"uuid": "e40b9ac5-d9c4-424c-bf8b-6601f7b22f51"
+											"description": "(Required) "
 										}
 									]
 								}
@@ -522,13 +510,11 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/json",
-										"uuid": "ffe6bd48-ffc2-454a-bd9c-47984639e92c"
+										"value": "application/json"
 									},
 									{
 										"key": "Accept",
-										"value": "*/*",
-										"uuid": "ffe127bf-10f6-44d0-a99a-4e985e82abae"
+										"value": "*/*"
 									}
 								],
 								"body": {
@@ -609,13 +595,11 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/json",
-										"uuid": "adb32be8-db69-487e-9211-39bb20cc8006"
+										"value": "application/json"
 									},
 									{
 										"key": "Accept",
-										"value": "*/*",
-										"uuid": "113461e9-7f1f-4712-9d8c-4b481126d3ec"
+										"value": "*/*"
 									}
 								],
 								"body": {
@@ -696,8 +680,7 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "*/*",
-										"uuid": "afa5a221-b5a4-4c99-930a-9a1f8d7066de"
+										"value": "*/*"
 									}
 								],
 								"url": {
@@ -771,13 +754,11 @@
 												"header": [
 													{
 														"key": "Content-Type",
-														"value": "application/json",
-														"uuid": "21de4871-2bf5-4186-9953-808b6ccabd74"
+														"value": "application/json"
 													},
 													{
 														"key": "Accept",
-														"value": "*/*",
-														"uuid": "1aad8fcf-9230-42a7-b338-7f6eb27b6f90"
+														"value": "*/*"
 													}
 												],
 												"body": {
@@ -806,8 +787,7 @@
 														{
 															"key": "id",
 															"value": "<integer>",
-															"description": "(Required) ",
-															"uuid": "d802ddb3-501b-4948-88e4-6e2bdedf134e"
+															"description": "(Required) "
 														}
 													]
 												}
@@ -875,8 +855,7 @@
 												"header": [
 													{
 														"key": "Accept",
-														"value": "*/*",
-														"uuid": "2bbfa239-9dab-48e7-992e-d05d06fd34c5"
+														"value": "*/*"
 													}
 												],
 												"url": {
@@ -896,8 +875,7 @@
 														{
 															"key": "id",
 															"value": "<integer>",
-															"description": "(Required) ",
-															"uuid": "1e15a251-cd56-4bed-b210-e53084e7027b"
+															"description": "(Required) "
 														}
 													]
 												}
@@ -958,8 +936,7 @@
 										"header": [
 											{
 												"key": "Accept",
-												"value": "*/*",
-												"uuid": "4d9f568b-e52c-4086-9571-650715f8c7ac"
+												"value": "*/*"
 											}
 										],
 										"url": {
@@ -1026,13 +1003,11 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/json",
-										"uuid": "e3396918-ce0c-42fd-9553-333bcc4da61a"
+										"value": "application/json"
 									},
 									{
 										"key": "Accept",
-										"value": "*/*",
-										"uuid": "e867548b-6f3d-403c-89fc-7cfb788815c4"
+										"value": "*/*"
 									}
 								],
 								"body": {
@@ -1111,8 +1086,7 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "*/*",
-										"uuid": "40655d7d-b84d-4204-9623-bc597326d72d"
+										"value": "*/*"
 									}
 								],
 								"url": {
@@ -1133,8 +1107,7 @@
 										{
 											"key": "id",
 											"value": "<integer>",
-											"description": "(Required) ",
-											"uuid": "51c06cdc-dea3-437b-8fcb-0dca0e59b213"
+											"description": "(Required) "
 										}
 									]
 								}
@@ -1202,8 +1175,7 @@
 										"header": [
 											{
 												"key": "Accept",
-												"value": "*/*",
-												"uuid": "ae3192b1-2136-49ec-afcf-73c55a0cf10d"
+												"value": "*/*"
 											}
 										],
 										"url": {
@@ -1270,8 +1242,7 @@
 										"header": [
 											{
 												"key": "Accept",
-												"value": "*/*",
-												"uuid": "481114ca-2abf-40fe-896b-69999b6a25af"
+												"value": "*/*"
 											}
 										],
 										"url": {
@@ -1292,8 +1263,7 @@
 												{
 													"key": "id",
 													"value": "<integer>",
-													"description": "(Required) ",
-													"uuid": "107aa923-50e1-4a20-b675-803df7811570"
+													"description": "(Required) "
 												}
 											]
 										}
@@ -1355,13 +1325,11 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/json",
-										"uuid": "c880871f-15d9-4ab8-9c6a-760f8b533e8d"
+										"value": "application/json"
 									},
 									{
 										"key": "Accept",
-										"value": "*/*",
-										"uuid": "c215a1e0-a7c9-4017-9cb5-d5f645b2927a"
+										"value": "*/*"
 									}
 								],
 								"body": {
@@ -1391,8 +1359,7 @@
 										{
 											"key": "id",
 											"value": "<integer>",
-											"description": "(Required) ",
-											"uuid": "30a61972-80a3-4364-8a64-1a4bc830647a"
+											"description": "(Required) "
 										}
 									]
 								}
@@ -1461,13 +1428,11 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/json",
-										"uuid": "69632e34-49aa-475d-b925-29cb28e4f6fc"
+										"value": "application/json"
 									},
 									{
 										"key": "Accept",
-										"value": "*/*",
-										"uuid": "c87c06a4-27b6-4e95-8f68-65e874b16af1"
+										"value": "*/*"
 									}
 								],
 								"body": {
@@ -1496,8 +1461,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "",
-											"uuid": "cffd8da6-4320-4e1d-ac81-8341bd50f518"
+											"value": ""
 										}
 									]
 								}
@@ -1565,8 +1529,7 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "*/*",
-										"uuid": "424fe192-e7e3-4bb6-9549-9728570ba7ab"
+										"value": "*/*"
 									}
 								],
 								"url": {
@@ -1680,8 +1643,7 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "*/*",
-										"uuid": "2b37afc0-6522-4805-bb39-b5c9826321b0"
+										"value": "*/*"
 									}
 								],
 								"url": {
@@ -1702,8 +1664,7 @@
 										{
 											"key": "id",
 											"value": "<integer>",
-											"description": "(Required) ",
-											"uuid": "61c5fa83-a121-4b12-82b9-8a7ce0c8b81e"
+											"description": "(Required) "
 										}
 									]
 								}
@@ -1763,8 +1724,7 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "*/*",
-										"uuid": "9e49271d-5873-45c7-b7d7-28e142a63785"
+										"value": "*/*"
 									}
 								],
 								"url": {
@@ -1797,8 +1757,7 @@
 										{
 											"key": "employeeId",
 											"value": "<integer>",
-											"description": "(Required) ",
-											"uuid": "95bafe61-186b-48fc-8684-c2664dbe6a66"
+											"description": "(Required) "
 										}
 									]
 								}
@@ -1868,8 +1827,7 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "*/*",
-										"uuid": "734dae25-5e9a-40d1-8ac7-6d85cba09b2e"
+										"value": "*/*"
 									}
 								],
 								"url": {
@@ -1982,13 +1940,11 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/json",
-										"uuid": "a0aec207-37a2-4745-8035-42ef796747e2"
+										"value": "application/json"
 									},
 									{
 										"key": "Accept",
-										"value": "*/*",
-										"uuid": "66268c5f-fe07-4519-a0ad-f6533ebb1d9a"
+										"value": "*/*"
 									}
 								],
 								"body": {
@@ -2014,8 +1970,7 @@
 										{
 											"key": "id",
 											"value": "<integer>",
-											"description": "(Required) ",
-											"uuid": "095a1260-6f54-4d07-be14-62cbe92d0853"
+											"description": "(Required) "
 										}
 									]
 								}
@@ -2080,8 +2035,7 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "*/*",
-										"uuid": "b4712d35-bec6-4167-a8e3-21237caa47ee"
+										"value": "*/*"
 									}
 								],
 								"url": {
@@ -2098,8 +2052,7 @@
 										{
 											"key": "id",
 											"value": "<integer>",
-											"description": "(Required) ",
-											"uuid": "91878da6-1682-48e1-ba1a-65f6824b97a0"
+											"description": "(Required) "
 										}
 									]
 								}
@@ -2155,8 +2108,7 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "*/*",
-										"uuid": "7b66b938-26ac-42e8-bf94-060bebb0ae76"
+										"value": "*/*"
 									}
 								],
 								"url": {
@@ -2173,8 +2125,7 @@
 										{
 											"key": "id",
 											"value": "<integer>",
-											"description": "(Required) ",
-											"uuid": "6b332226-7cd0-4e11-a826-3a8958a3063a"
+											"description": "(Required) "
 										}
 									]
 								}
@@ -2232,13 +2183,11 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"uuid": "0673852d-b18d-49c5-98f6-e8207a575592"
+								"value": "application/json"
 							},
 							{
 								"key": "Accept",
-								"value": "*/*",
-								"uuid": "afb4c263-fc86-4acd-8275-b51465d2a5b6"
+								"value": "*/*"
 							}
 						],
 						"body": {
@@ -2315,8 +2264,7 @@
 						"header": [
 							{
 								"key": "Accept",
-								"value": "*/*",
-								"uuid": "c9a5ecb2-beb8-45e0-a7d1-55ab7d37b768"
+								"value": "*/*"
 							}
 						],
 						"url": {
@@ -2374,7 +2322,7 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "https://HR_Management_System",
+			"value": "http://localhost:8000",
 			"type": "string"
 		}
 	]

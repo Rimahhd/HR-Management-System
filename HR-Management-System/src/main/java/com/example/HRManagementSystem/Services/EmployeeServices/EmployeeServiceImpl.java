@@ -22,9 +22,13 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private EmployeeMapper employeeMapper;
 
+    public EmployeeServiceImpl() {
+        this(null);
+    }
+
     public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
-//        this.employeeMapper1 = employeeMapper1;
+       this.employeeMapper = employeeMapper;
     }
 
     @Override

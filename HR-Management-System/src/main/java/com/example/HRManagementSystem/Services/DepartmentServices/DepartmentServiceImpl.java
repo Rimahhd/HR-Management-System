@@ -17,8 +17,8 @@ import java.util.Map;
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
 
-    @Autowired
-    private DepartmentRepository departmentRepository;
+
+    private final DepartmentRepository departmentRepository;
 
 
     private final DepartmentMapper departmentMapper;

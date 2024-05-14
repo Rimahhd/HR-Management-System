@@ -4,7 +4,7 @@ info:
   description: "HR_Management_System API"
   version: "1.0.0"
 servers:
-  - url: "https://HR_Management_System"
+  - url: "http://localhost:8000"
 paths:
   /HRManagementSystem/api/v1/employees/{id}:
     patch:

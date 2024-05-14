@@ -22,6 +22,10 @@ public class LeaveTypeServiceImpl implements LeaveTypeService {
     @Autowired
     private LeaveTypeMapper leaveTypeMapper;
 
+    public LeaveTypeServiceImpl() {
+        this(null);
+    }
+
     public LeaveTypeServiceImpl(LeaveTypeRepository leaveTypeRepository) {
         this.leaveTypeRepository = leaveTypeRepository;
         this.leaveTypeMapper = leaveTypeMapper;
